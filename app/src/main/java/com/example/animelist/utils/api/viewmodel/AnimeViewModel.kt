@@ -3,18 +3,29 @@ package com.example.animelist.utils.api.viewmodel
 import com.example.animelist.model.AnimeModel
 import com.example.animelist.model.AnimePage
 import com.example.animelist.utils.api.ApiClient
+import com.example.animelist.utils.api.PERPAGEITEM
 import com.example.animelist.utils.api.interfaceapi.GraphQLRequest
 import com.example.animelist.utils.api.query.AnimeQuery
 import com.google.gson.Gson
 
 class AnimeViewModel: PaginatedViewModel<AnimeModel>(){
+    private var searchQuery: String? = null
     init {
         loadInitial()
     }
 
-    override suspend fun loadPage(page: Int): Pair<List<AnimeModel>, Boolean> {
+    fun setSearchQuery(query: String) {
+        if (query != searchQuery) {
+            searchQuery = query
+            loadInitial()
+        }
+    }
+
+    override suspend fun loadPage(page: Int, perPage: Int): Pair<List<AnimeModel>, Boolean> {
         val variables = mapOf(
-            "page" to page
+            "page" to page,
+            "perPage" to perPage,
+            "search" to searchQuery?.ifEmpty { null }
         )
         val body = GraphQLRequest(AnimeQuery.getAnimes, variables)
 

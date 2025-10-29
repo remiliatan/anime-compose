@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.animelist.utils.api.PERPAGEITEM
 import kotlinx.coroutines.launch
 
 abstract class PaginatedViewModel<T>: ViewModel(){
@@ -18,7 +19,7 @@ abstract class PaginatedViewModel<T>: ViewModel(){
 
     private var currentPage = 1
     private var hasNextPage = true
-    protected  abstract suspend fun loadPage(page: Int): Pair<List<T>, Boolean>
+    protected  abstract suspend fun loadPage(page: Int, perPage: Int = PERPAGEITEM): Pair<List<T>, Boolean>
     fun loadInitial(){
         viewModelScope.launch {
             if(_isLoading.value) return@launch
