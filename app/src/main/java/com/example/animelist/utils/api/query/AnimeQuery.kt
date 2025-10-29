@@ -9,7 +9,7 @@ object AnimeQuery {
               hasNextPage
               perPage
             }
-            media (id: ${"$"}id, search: ${"$"}search) {
+            media (id: ${"$"}id, search: ${"$"}search, type: ANIME) {
               id
               idMal
               title {
