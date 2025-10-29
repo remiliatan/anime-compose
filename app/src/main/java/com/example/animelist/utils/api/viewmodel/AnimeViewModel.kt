@@ -3,7 +3,6 @@ package com.example.animelist.utils.api.viewmodel
 import com.example.animelist.model.AnimeModel
 import com.example.animelist.model.AnimePage
 import com.example.animelist.utils.api.ApiClient
-import com.example.animelist.utils.api.PERPAGEITEM
 import com.example.animelist.utils.api.interfaceapi.GraphQLRequest
 import com.example.animelist.utils.api.query.AnimeQuery
 import com.google.gson.Gson
