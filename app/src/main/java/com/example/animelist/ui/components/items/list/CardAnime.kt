@@ -28,9 +28,9 @@ fun CardAnime(
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ImageView(animeModel.imageUrl, modifier = Modifier.fillMaxWidth().height(150.dp))
+        ImageView(animeModel.coverImage?.medium, modifier = Modifier.fillMaxWidth().height(150.dp))
         TextView(
-            animeModel.title ?: "",
+            animeModel.title?.romaji ?: "",
             isBold = true,
             size = 16,
             maxLines = 2,
