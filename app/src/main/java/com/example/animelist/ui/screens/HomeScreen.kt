@@ -26,6 +26,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.animelist.ui.components.items.list.CardAnime
 import com.example.animelist.ui.components.materials.TextView
+import com.example.animelist.ui.navigation.Screen
 import com.example.animelist.utils.api.viewmodel.AnimeViewModel
 import com.example.animelist.utils.helpers.rememberInfiniteScroll
 import kotlinx.coroutines.delay
@@ -85,7 +86,7 @@ fun HomeScreen(navController:NavController){
                                 CardAnime(
                                     item,
                                     onClick = {
-                                        println("Kamu klssik ${item.idMal}")
+                                        navController.navigate(Screen.Detail.route)
                                     }
                                 )
                             }

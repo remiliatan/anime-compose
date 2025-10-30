@@ -1,5 +1,7 @@
 package com.example.animelist.ui.navigation
 
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -10,7 +12,14 @@ import com.example.animelist.ui.screens.HomeScreen
 @Composable
 fun AppNavigation (){
     val listNav = rememberNavController()
-    NavHost(listNav, "home"){
+    NavHost(
+        listNav,
+        Screen.Home.route ,
+        enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+        exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) },
+        popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) },
+        popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) }
+    ){
         composable(Screen.Home.route){
             HomeScreen(listNav)
         }
