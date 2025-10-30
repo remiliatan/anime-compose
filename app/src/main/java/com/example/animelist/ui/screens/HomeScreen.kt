@@ -47,20 +47,11 @@ fun HomeScreen(navController:NavController){
         delay(500)
         animeViewModel.setSearchQuery(searchText)
     }
-
-    Scaffold { padding ->
-        Column(
-            modifier = Modifier.padding(padding),
-        ) {
+        Column{
             Column(
                 modifier = Modifier.padding(10.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ){
-                TextView(
-                    "Anime Terbaru",
-                    isBold = true,
-                    size = 20
-                )
                 OutlinedTextField(
                     value = searchText,
                     onValueChange = { newValue ->
@@ -94,6 +85,5 @@ fun HomeScreen(navController:NavController){
                     }
                 }
             }
-        }
     }
 }

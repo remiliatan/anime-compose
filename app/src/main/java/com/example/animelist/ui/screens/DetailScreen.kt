@@ -10,9 +10,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun DetailScreen(nav:NavController){
-    Scaffold { padding ->
-        Column (modifier = Modifier.padding(padding)){
-            Text("DETAILws")
-        }
+    Column {
+        Text("DETAILws")
     }
 }
