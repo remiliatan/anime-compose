@@ -12,3 +12,5 @@ val Pink40 = Color(0xFF7D5260)
 val TextColor = Color(0xFF333333)
 
 val BorderColor = Color(0xFFE1E1E1)
+
+val FlatGreen = Color(0xFF2FC040)
